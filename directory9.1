@@ -1,0 +1,22 @@
+import os
+
+cwd = os.getcwd()
+directoryName = input("Directory Name? ")
+directoryName = cwd + '/' + directoryName
+fileName = input("File Name? ")
+path = directoryName + '/' + fileName
+if not os.path.isdir(directoryName):
+  os.mkdir(directoryName)
+
+
+name = input("Enter Name: ")
+address = input("Enter Address: ")
+phoneNumber = input("Phone Number: ")
+data = name + ", " + address + ", " + phoneNumber
+os.chdir(directoryName)
+file = open(fileName, "w")
+file.write(data)
+file.close()
+file2 = open(fileName, "r")
+content = file2.readlines()[0]
+print(content)
